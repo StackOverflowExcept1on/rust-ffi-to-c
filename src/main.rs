@@ -25,7 +25,6 @@ unsafe extern "C" fn f(ret: i32) {
 
 fn main() {
     unsafe {
-        add(0, 0, f);
         add(2, 2, f);
     }
 }
