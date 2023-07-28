@@ -7,7 +7,7 @@ impl Drop for MyString {
     }
 }
 
-extern "C" {
+extern "C-unwind" {
     fn add(a: i32, b: i32, callback: unsafe extern "C" fn(i32)) -> i32;
 }
 
