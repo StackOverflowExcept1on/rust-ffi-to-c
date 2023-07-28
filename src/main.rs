@@ -8,10 +8,10 @@ impl Drop for MyString {
 }
 
 extern "C-unwind" {
-    fn add(a: i32, b: i32, callback: unsafe extern "C" fn(i32)) -> i32;
+    fn add(a: i32, b: i32, callback: unsafe extern "C-unwind" fn(i32)) -> i32;
 }
 
-unsafe extern "C" fn f(ret: i32) {
+unsafe extern "C-unwind" fn f(ret: i32) {
     let local = MyString(String::from("41414141"));
     if ret == 4 {
         panic!();
