@@ -1,5 +1,3 @@
-#![feature(c_unwind)]
-
 #[derive(Debug)]
 struct MyString(String);
 
