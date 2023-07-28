@@ -22,7 +22,10 @@ unsafe extern "C-unwind" fn f(ret: i32) {
 }
 
 fn main() {
-    unsafe {
-        add(2, 2, f);
-    }
+    let result = std::panic::catch_unwind(|| {
+        unsafe {
+            add(2, 2, f);
+        }
+    });
+    dbg!(result.is_err());
 }
